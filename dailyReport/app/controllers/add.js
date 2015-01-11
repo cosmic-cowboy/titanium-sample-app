@@ -1,5 +1,13 @@
 var formatDate = require('util/formatDate');
 
+// タイトルの設定
+var title = formatDate.format(new Date(), "YYYY年MM月DD日");
+$.add.title = title;
+$.addWin.title = title;
+
+
+
+// 日記を投稿する
 function saveReport () {
 
 	var mReport = Alloy.createModel("report", {
@@ -10,7 +18,7 @@ function saveReport () {
 	if(mReport.isValid()){
 
 		mReport.save();
-		$.addWin.close({
+		$.add.close({
 			animated : true
 		});
 		Alloy.Collections.report.fetch();
@@ -19,7 +27,10 @@ function saveReport () {
 		mReport.destroy();
 		alert("保存できません");
 	}
+}
 
 
-
+// 投稿をキャンセル
+function close () {
+	$.add.close();
 }
