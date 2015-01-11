@@ -1,0 +1,9 @@
+<Alloy>
+	<Window id="addWin" title="追加" tabBarHidden="true">
+		<View id="addWrap" layout="vertical">
+			<Label>日記</Label>
+			<TextArea id="inputContent"></TextArea>
+			<Button id="saveReport" title="保存する" onClick="saveReport"></Button>
+		</View>
+	</Window>
+</Alloy>
