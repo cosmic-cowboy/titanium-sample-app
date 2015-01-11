@@ -1,5 +1,28 @@
 <Alloy>
-	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
-	</Window>
+	<Collection src="report" />
+	<NavigationWindow>
+		<Window title="デイリーレポート">
+			<RightNavButton>
+				<Button title="新規" onClick="addReport" id="addButton" />
+			</RightNavButton>
+
+			<ListView id="reports" defaultItemTemplate="reportTemplate">
+				<Templates>
+					<ItemTemplate name="reportTemplate">
+						<View id="textContainer">
+							<Label bindId="content" id="content"/>
+							<Label bindId="date" id="date"/>
+						</View>
+					</ItemTemplate>
+				</Templates>
+				<ListSection dataCollection="report">
+					<ListItem template="{reportTemplate}" 
+						content:text="{content}"
+						date:text="{date}"
+						properties:itemId="{alloy_id}"
+					/>
+				</ListSection>
+			</ListView>
+		</Window>
+	</NavigationWindow>
 </Alloy>

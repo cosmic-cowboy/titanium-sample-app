@@ -1,15 +1,26 @@
-".container": {
-	backgroundColor:"white"
+"#addButton" : {
+	systemButton : Ti.UI.iPhone.SystemButton.COMPOSE
 }
 
-"Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: "#000"
+"#textContainer" : {
+	width : Ti.UI.FILL,
+	height : Ti.UI.SIZE,
+	top : 6,
+	right : 11,
+	bottom : 6,
+	left : 11,
+	layout : "horizontal"
 }
 
-"#label": {
-	font: {
-		fontSize: 12
+"#content" : {
+	font : {
+		fontSize : 18,
+		fontWeight : "bold"
+	}
+}
+"#date" : {
+	left : 5,
+	font : {
+		fontSize : 14
 	}
 }
