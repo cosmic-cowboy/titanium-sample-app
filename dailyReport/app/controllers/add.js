@@ -1,11 +1,12 @@
+var formatDate = require('util/formatDate');
 
 function saveReport () {
 
 	var mReport = Alloy.createModel("report", {
-		content       : $.inputContent.value,
-		date     : new Date()
+		content  : $.inputContent.value,
+		date     : formatDate.format(new Date())
 	});
-	
+
 	if(mReport.isValid()){
 
 		mReport.save();
