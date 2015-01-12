@@ -6,7 +6,7 @@
 				<Button title="新規" onClick="addReport" id="addButton" />
 			</RightNavButton>
 
-			<ListView id="reports" defaultItemTemplate="reportTemplate" >
+			<ListView id="reports" defaultItemTemplate="reportTemplate" onItemclick="detailReport">
 				<Templates>
 					<ItemTemplate name="reportTemplate" height="80">
 						<View id="textContainer">
@@ -22,7 +22,7 @@
 						content:text="{content}"
 						formatDate:text="{formatDate}"
 						date:text="{date}"
-						properties:itemId="{alloy_id}"
+						properties:itemId="{content_id}"
 					/>
 				</ListSection>
 			</ListView>

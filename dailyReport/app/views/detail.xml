@@ -1,0 +1,15 @@
+<Alloy>
+	<Window id="detailWin">
+
+		<RightNavButton>
+			<Button onClick="deleteReport" id="deleteButton"></Button>
+		</RightNavButton>
+
+		<ScrollView id="addWrap" layout="vertical">
+
+			<Label id="content"></Label>
+
+		</ScrollView>
+
+	</Window>
+</Alloy>

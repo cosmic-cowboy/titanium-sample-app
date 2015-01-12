@@ -1,9 +1,30 @@
 var formatDate = require('util/formatDate');
 
+
 // 日記を新規作成する
 function addReport (argument) {
 	var win = Alloy.createController('add').getView();
 	win.open();
+}
+
+// 日記の詳細ページへ
+function detailReport (element) {
+	
+	// タップされた日記の情報を取得
+	var modelReport = Alloy.Collections.report.where({
+		content_id : element.itemId
+	})[0];
+
+	// 取得した情報を詳細ページに渡すための引数を生成
+	var arg = {
+		e_id : element.itemId,
+		content : modelReport.get('content'),
+		date : modelReport.get('date')
+	};
+	// 詳細ページの作成
+	var detailWin = Alloy.createController("detail", arg).getView();
+	$.index.openWindow(detailWin);
+
 }
 
 // レポートの表示項目を編集する
