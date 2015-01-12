@@ -6,6 +6,10 @@ $.add.title = title;
 $.addWin.title = title;
 
 
+$.add.addEventListener('open', function() {
+	// テキストエリアにフォーカス
+	$.inputContent.focus();
+});
 
 // 日記を投稿する
 function saveReport () {
