@@ -8,10 +8,12 @@
 
 			<ListView id="reports" defaultItemTemplate="reportTemplate" >
 				<Templates>
-					<ItemTemplate name="reportTemplate">
+					<ItemTemplate name="reportTemplate" height="80">
 						<View id="textContainer">
-							<Label bindId="content" id="content"/>
 							<Label bindId="formatDate" id="formatDate"/>
+							<View id="contentContainer">
+								<Label bindId="content" id="content"/>
+							</View>
 						</View>
 					</ItemTemplate>
 				</Templates>

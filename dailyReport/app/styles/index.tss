@@ -3,24 +3,33 @@
 }
 
 "#textContainer" : {
-	width : Ti.UI.FILL,
-	height : Ti.UI.SIZE,
-	top : 6,
-	right : 11,
-	bottom : 6,
-	left : 11,
-	layout : "horizontal"
+	top : 10,
+	right : 10,
+	bottom : 10,
+	left : 15,
+	layout : "vertical"
 }
 
-"#content" : {
+"#contentContainer" : {
+	left: 0, 
+	right: 0, 
+	layout: "horizontal"
+}
+
+"#formatDate" : {
+	left: 0,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	color : "#41A774",
 	font : {
-		fontSize : 18,
+		fontSize : "10dp",
 		fontWeight : "bold"
 	}
 }
-"#date" : {
-	left : 5,
+
+"#content" : {
+	top : 3,
+	left: 0,
 	font : {
-		fontSize : 14
+		fontSize : "18dp"
 	}
 }
