@@ -6,18 +6,19 @@
 				<Button title="新規" onClick="addReport" id="addButton" />
 			</RightNavButton>
 
-			<ListView id="reports" defaultItemTemplate="reportTemplate">
+			<ListView id="reports" defaultItemTemplate="reportTemplate" >
 				<Templates>
 					<ItemTemplate name="reportTemplate">
 						<View id="textContainer">
 							<Label bindId="content" id="content"/>
-							<Label bindId="date" id="date"/>
+							<Label bindId="formatDate" id="formatDate"/>
 						</View>
 					</ItemTemplate>
 				</Templates>
-				<ListSection dataCollection="report">
+				<ListSection id="reportsection" dataCollection="report" dataTransform="transData">
 					<ListItem template="{reportTemplate}" 
 						content:text="{content}"
+						formatDate:text="{formatDate}"
 						date:text="{date}"
 						properties:itemId="{alloy_id}"
 					/>

@@ -15,6 +15,7 @@
   },
   textAlign: "left",
   color: "#333333",
+  height: Ti.UI.FILL,
   width: Ti.UI.FILL,
   suppressReturn: false
 }

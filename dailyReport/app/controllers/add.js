@@ -12,7 +12,7 @@ function saveReport () {
 
 	var mReport = Alloy.createModel("report", {
 		content  : $.inputContent.value,
-		date     : formatDate.format(new Date())
+		date     : new Date().getTime()
 	});
 
 	if(mReport.isValid()){
