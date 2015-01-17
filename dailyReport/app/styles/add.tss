@@ -9,6 +9,14 @@
   systemButton : Ti.UI.iPhone.SystemButton.SAVE
 }
 
+"#cameraButton" : {
+  systemButton : Ti.UI.iPhone.SystemButton.CAMERA
+}
+
+"#photoButton" : {
+  systemButton : Ti.UI.iPhone.SystemButton.ORGANIZE
+}
+
 "#inputContent": {
   font: {
     fontSize: 16

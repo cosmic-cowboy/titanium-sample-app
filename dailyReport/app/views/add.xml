@@ -10,7 +10,20 @@
 			</RightNavButton>
 
 			<ScrollView id="addWrap" layout="vertical">
-				<TextArea id="inputContent"></TextArea>
+				<TextArea id="inputContent">
+					<KeyboardToolbar>
+		                <Toolbar>
+		                    <Items>
+		                        <FlexSpace/>
+		                        <Button onClick="showCamera" id="cameraButton"/>
+		                        <FlexSpace/>
+		                        <FlexSpace/>
+		                        <Button onClick="addPhotoPicker" id="photoButton"/>
+		                        <FlexSpace/>
+		                    </Items>
+		                </Toolbar>
+		            </KeyboardToolbar>
+				</TextArea>
 			</ScrollView>
 			
 		</Window>
