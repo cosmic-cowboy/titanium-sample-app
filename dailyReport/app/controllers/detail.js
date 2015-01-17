@@ -3,6 +3,11 @@ var dialogs = require("alloy/dialogs");
 
 var args = arguments[0] || {};
 
+// 画像の表示
+var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'image.jpeg');
+var image = file.read();
+if (image) $.photo.setImage(image);
+
 // 日記を削除する
 function deleteReport () {
 	dialogs.confirm({
