@@ -1,12 +1,10 @@
 var formatDate = require('util/formatDate');
 var dialogs = require("alloy/dialogs");
+var storage = require('storage');
 
 var args = arguments[0] || {};
 
-// 画像の表示
-var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'image.jpeg');
-var image = file.read();
-if (image) $.photo.setImage(image);
+console.log("filePath:" + args.filePath);
 
 // 日記を削除する
 function deleteReport () {
@@ -39,4 +37,11 @@ var title = formatDate.format(new Date(Number(args.date)), "YYYY年MM月DD日");
 $.detailWin.title = title;
 // 引数をページ要素に反映
 $.content.text = args.content;
+// 画像の表示
 
+if(args.filePath){
+	var image = storage.readPhoto(args.filePath);
+	if(image){
+		$.photo.setImage(image);
+	}
+}
