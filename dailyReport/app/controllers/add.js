@@ -1,4 +1,5 @@
 var formatDate = require('util/formatDate');
+var storage = require('storage');
 
 // タイトルの設定
 var title = formatDate.format(new Date(), "YYYY年MM月DD日");
@@ -45,38 +46,11 @@ function close () {
 // 画像添付
 // ----------------------------------------------------------------
 function showCamera() {
-	Ti.Media.showCamera({
-		success: function(e) {
-
-		}
-	});
+	var str = storage.create();
+	filePath = str.takePhoto();
 }
 
 function addPhotoPicker() {
-	Ti.Media.openPhotoGallery({
-		success: function(e) {
-			var blobMedia = e.media;
-			checkBlobProperty(blobMedia);
-
-			// ファイルの書き込み
-			var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'image.jpeg');
-			file.write(blobMedia);
-		},
-		cancel: function() {
-		}
-	});
-}
-
-// bolbについて調査
-function checkBlobProperty(blobMedia){
-	// The name of the API
-	console.log("apiName: " + blobMedia.apiName);
-	console.log("mimeType: " + blobMedia.mimeType);
-	console.log("nativePath: " + blobMedia.nativePath);
-	console.log("file: " + blobMedia.file);
-	console.log("bubbleParent: " + blobMedia.bubbleParent);
-	console.log("height: " + blobMedia.height);
-	console.log("width: " + blobMedia.width);
-	console.log("length: " + blobMedia.length);
-	console.log("text: " + blobMedia.text);
+	var str = storage.create();
+	filePath = str.getPhoto();
 }
