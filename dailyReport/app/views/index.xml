@@ -22,6 +22,7 @@
 						content:text="{content}"
 						formatDate:text="{formatDate}"
 						date:text="{date}"
+						filePath:text="{filePath}"
 						properties:itemId="{content_id}"
 					/>
 				</ListSection>

@@ -4,6 +4,7 @@ exports.definition = {
 		columns : {
 			"content" : "text",
 			"date" : "text",
+			"filePath" : "text",
 			"content_id": "INTEGER PRIMARY KEY AUTOINCREMENT"
 		},
 		adapter : {

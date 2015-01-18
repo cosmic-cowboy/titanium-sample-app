@@ -19,7 +19,8 @@ function detailReport (element) {
 	var arg = {
 		e_id : element.itemId,
 		content : modelReport.get('content'),
-		date : modelReport.get('date')
+		date : modelReport.get('date'),
+		filePath : modelReport.get('filePath')
 	};
 	// 詳細ページの作成
 	var detailWin = Alloy.createController("detail", arg).getView();

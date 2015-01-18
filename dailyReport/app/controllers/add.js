@@ -5,6 +5,8 @@ var title = formatDate.format(new Date(), "YYYY年MM月DD日");
 $.add.title = title;
 $.addWin.title = title;
 
+// ファイルパス
+var filePath = "";
 
 $.add.addEventListener('open', function() {
 	// テキストエリアにフォーカス
@@ -16,7 +18,8 @@ function saveReport () {
 
 	var mReport = Alloy.createModel("report", {
 		content  : $.inputContent.value,
-		date     : new Date().getTime()
+		date     : new Date().getTime(),
+		filePath : filePath
 	});
 
 	if(mReport.isValid()){
