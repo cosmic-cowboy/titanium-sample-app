@@ -23,7 +23,7 @@ function deleteReport () {
 
 			Alloy.Collections.report.remove(modelReport);
 			modelReport.destroy();
-
+			storage.remove(args.filePath);
 			$.detailWin.close({
 				animated : true
 			});
@@ -40,7 +40,7 @@ $.content.text = args.content;
 // 画像の表示
 
 if(args.filePath){
-	var image = storage.readPhoto(args.filePath);
+	var image = storage.read(args.filePath);
 	if(image){
 		$.photo.setImage(image);
 	}

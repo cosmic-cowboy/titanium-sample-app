@@ -1,5 +1,6 @@
 var formatDate = require('util/formatDate');
-var storage = require('storage');
+var storage    = require('storage');
+var Attachment = require('attachment');
 
 // タイトルの設定
 var title = formatDate.format(new Date(), "YYYY年MM月DD日");
@@ -9,6 +10,8 @@ $.addWin.title = title;
 // ファイルパス
 var filePath = "";
 
+var attach = Attachment.create();
+
 $.add.addEventListener('open', function() {
 	// テキストエリアにフォーカス
 	$.inputContent.focus();
@@ -17,15 +20,25 @@ $.add.addEventListener('open', function() {
 // 日記を投稿する
 function saveReport () {
 
+	var now = new Date().getTime();
+	var filePath = "";
+
+	var photo = attach.photo();
+	if(photo){
+		filePath = now + photo.mimeType.replace(/\//,'.');
+		storage.save(filePath, photo);
+	}
+
 	var mReport = Alloy.createModel("report", {
 		content  : $.inputContent.value,
-		date     : new Date().getTime(),
+		date     : now,
 		filePath : filePath
 	});
 
 	if(mReport.isValid()){
 
 		mReport.save();
+
 		$.add.close({
 			animated : true
 		});
@@ -46,11 +59,9 @@ function close () {
 // 画像添付
 // ----------------------------------------------------------------
 function showCamera() {
-	var str = storage.create();
-	filePath = str.takePhoto();
+	attach.takePhoto();
 }
 
 function addPhotoPicker() {
-	var str = storage.create();
-	filePath = str.getPhoto();
+	attach.getPhoto();
 }
