@@ -8,7 +8,6 @@
 		<ScrollView id="addWrap" layout="vertical">
 			<ImageView id="photo" bindId="photo" />
 			<Label id="content"></Label>
-
 		</ScrollView>
 
 	</Window>
