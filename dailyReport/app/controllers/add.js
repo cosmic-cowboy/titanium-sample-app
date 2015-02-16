@@ -59,9 +59,9 @@ function close () {
 // 画像添付
 // ----------------------------------------------------------------
 function showCamera() {
-	attach.takePhoto();
+	attach.takePhoto($);
 }
 
 function addPhotoPicker() {
-	attach.getPhoto();
+	attach.getPhoto($);
 }

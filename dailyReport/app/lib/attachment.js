@@ -16,6 +16,7 @@ Attachment.prototype.takePhoto = function takePhoto(){
 	Ti.Media.showCamera({
 		success: function(e) {
 			self.savePhoto = e.media;
+
 		},
 		cancel: function() {
 		}
@@ -23,11 +24,14 @@ Attachment.prototype.takePhoto = function takePhoto(){
 };
 
 // デバイスのフォトギャラリーから写真を取得
-Attachment.prototype.getPhoto = function getPhoto(){
+Attachment.prototype.getPhoto = function getPhoto($){
 	var self = this;
 	Ti.Media.openPhotoGallery({
 		success: function(e) {
+			// TODO とりあえずサムネイル表示のため
 			self.savePhoto = e.media;
+			addPhoto($, self.savePhoto);
+
 		},
 		cancel: function() {
 		}
@@ -40,6 +44,9 @@ Attachment.prototype.photo = function photo () {
 	return this.savePhoto;
 };
 
+
+
+
 // ----------------------------------------------------------------
 //  添付オブジェクトの生成
 // ----------------------------------------------------------------
@@ -48,3 +55,29 @@ exports.create = function create () {
 	return attachment;
 };
 
+
+function addPhoto($, photo){
+
+	var image = Ti.UI.createImageView($.createStyle({
+		classes: [ 'a-photo' ],
+		image: photo
+	}));
+	var container = Ti.UI.createScrollView($.createStyle({
+		classes: [ 'a-photo-container' ],
+	}));
+	var frame = Ti.UI.createScrollView($.createStyle({
+		classes: [ 'a-photo-frame' ],
+	}));
+	// var close = Ti.UI.createButton($.createStyle({
+	// 	classes: [ 'a-photo-close' ],
+	// }));
+	// close.addEventListener('click', function() {
+	// 	removePhoto(photo, frame);
+	// });
+	container.add(image);
+	frame.add(container);
+	// frame.add(close);
+	console.log(frame);
+
+	$.photoGallery.add(frame);
+}

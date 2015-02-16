@@ -10,6 +10,7 @@
 			</RightNavButton>
 
 			<ScrollView id="addWrap" layout="vertical">
+				<View id="photoGallery" />
 				<TextArea id="inputContent">
 					<KeyboardToolbar>
 		                <Toolbar>
