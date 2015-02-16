@@ -13,7 +13,10 @@
 							<Label bindId="formatDate" id="formatDate"/>
 							<View id="contentContainer">
 								<Label bindId="content" id="content"/>
+								<ImageView bindId="photo" id="photo" class="a-photo-frame a-photo"/>
 							</View>
+							
+
 						</View>
 					</ItemTemplate>
 				</Templates>
@@ -23,6 +26,7 @@
 						formatDate:text="{formatDate}"
 						date:text="{date}"
 						filePath:text="{filePath}"
+						photo:image="{photo}"
 						properties:itemId="{content_id}"
 					/>
 				</ListSection>
